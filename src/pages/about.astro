@@ -9,21 +9,34 @@ const identity = {
 };
 
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
----
 
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <MainLayout title="About">
-  <h1 class="text-3xl font-bold mb-4">About Me</h1>
-  <h2 class="text-xl text-gray-700 mb-2">... and my new Astro site!</h2>
+  <div class="max-w-screen-md mx-auto px-4">
+    <h1 class="text-3xl font-bold mb-4">About Me</h1>
 
-  <p class="text-lg text-gray-700 mb-4">
-    I am working through Astro's introductory tutorial. This is the second page
-    on my website, and it's the first one I built myself!
-  </p>
+    <ul class="pl-4 mb-4">
+      <li>My name is {identity.firstName}.</li>
+      <li>
+        I live in {identity.country} and I work as a {identity.occupation}.
+      </li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            Two of my hobbies are: {identity.hobbies[0]} and{" "}
+            {identity.hobbies[1]}
+          </li>
+        )
+      }
+    </ul>
 
-  <p class="text-lg text-gray-700">
-    This site will update as I complete more of the tutorial, so keep checking
-    back and see how my journey is going!
-  </p>
+    <p class="mb-2">My skills are:</p>
+    <ul class="pl-4">
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+  </div>
 </MainLayout>
