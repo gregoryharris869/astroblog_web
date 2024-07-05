@@ -16,27 +16,24 @@ const goal = 3;
 ---
 
 <MainLayout title="About">
-  <div class="max-w-screen-md mx-auto px-4">
-    <h1 class="text-3xl font-bold mb-4">About Me</h1>
+  <h1 class="text-3xl font-bold mb-4">About Me</h1>
 
-    <ul class="pl-4 mb-4">
-      <li>My name is {identity.firstName}.</li>
-      <li>
-        I live in {identity.country} and I work as a {identity.occupation}.
-      </li>
-      {
-        identity.hobbies.length >= 2 && (
-          <li>
-            Two of my hobbies are: {identity.hobbies[0]} and{" "}
-            {identity.hobbies[1]}
-          </li>
-        )
-      }
-    </ul>
+  <ul class="pl-4 mb-4">
+    <li>My name is {identity.firstName}.</li>
+    <li>
+      I live in {identity.country} and I work as a {identity.occupation}.
+    </li>
+    {
+      identity.hobbies.length >= 2 && (
+        <li>
+          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
+        </li>
+      )
+    }
+  </ul>
 
-    <p class="mb-2">My skills are:</p>
-    <ul class="pl-4">
-      {skills.map((skill) => <li>{skill}</li>)}
-    </ul>
-  </div>
+  <p class="mb-2">My skills are:</p>
+  <ul class="pl-4">
+    {skills.map((skill) => <li>{skill}</li>)}
+  </ul>
 </MainLayout>
