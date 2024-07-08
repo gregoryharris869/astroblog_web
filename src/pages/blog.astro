@@ -2,6 +2,7 @@
 import MainLayout from "../layout/MainLayout.astro";
 const allPosts = await Astro.glob("./posts/*.md");
 const pageTitle = "My Astro Learning Blog";
+import BlogPost from "../components/BlogPost.astro";
 ---
 
 <MainLayout title="Blog">
@@ -12,11 +13,7 @@ const pageTitle = "My Astro Learning Blog";
   <ul class="mb-4">
     {
       allPosts.map((post) => (
-        <li>
-          <a class="text-blue-500 hover:text-blue-700" href={post.url}>
-            {post.frontmatter.title}
-          </a>
-        </li>
+        <BlogPost url={post.url} title={post.frontmatter.title} />
       ))
     }
   </ul>
